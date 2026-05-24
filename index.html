@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rehan Ali — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #050b16;
+  --surface: #08111f;
+  --card: rgba(15, 32, 64, 0.65);
+  --blue: #2196F3;
+  --blue-light: #64b5f6;
+  --blue-glow: rgba(33, 150, 243, 0.18);
+  --text: #e8edf5;
+  --muted: #7a8fa8;
+  --border: rgba(255,255,255,0.08);
+  --white: #ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:linear-gradient(180deg,#050b16 0%,#08111f 100%);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+  width:5px;
+}
+
+::-webkit-scrollbar-track{
+  background:var(--bg);
+}
+
+::-webkit-scrollbar-thumb{
+  background:var(--blue);
+  border-radius:10px;
+}
+
+/* NAVBAR */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 6%;
+  background:rgba(8,15,30,0.75);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  box-shadow:0 4px 30px rgba(0,0,0,0.25);
+}
+
+.logo{
+  font-size:1.5rem;
+  font-weight:800;
+  color:white;
+}
+
+.logo span{
+  color:var(--blue);
+}
+
+nav ul{
+  display:flex;
+  gap:32px;
+  list-style:none;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:0.9rem;
+  font-weight:600;
+  transition:0.3s;
+  position:relative;
+}
+
+nav a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:var(--blue);
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:white;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.nav-hire{
+  border:1px solid var(--blue);
+  padding:8px 18px;
+  border-radius:8px;
+  color:var(--blue)!important;
+}
+
+.nav-hire:hover{
+  background:var(--blue);
+  color:white!important;
+}
+
+/* HERO SECTION */
+
+#home{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:120px 6% 80px;
+  position:relative;
+  overflow:hidden;
+}
+
+#home::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+  linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+
+#home::after{
+  content:'';
+  position:absolute;
+  top:5%;
+  right:-100px;
+  width:550px;
+  height:550px;
+  border-radius:50%;
+  background:
+  radial-gradient(circle,
+  rgba(33,150,243,0.22) 0%,
+  rgba(33,150,243,0.08) 40%,
+  transparent 75%);
+  filter:blur(20px);
+}
+
+.hero-content{
+  position:relative;
+  z-index:1;
+  max-width:700px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 16px;
+  border-radius:999px;
+  background:var(--blue-glow);
+  border:1px solid var(--border);
+  color:var(--blue-light);
+  font-size:0.8rem;
+  margin-bottom:28px;
+}
+
+.hero-badge span{
+  width:7px;
+  height:7px;
+  background:var(--blue);
+  border-radius:50%;
+}
+
+.hero-content h1{
+  font-size:4rem;
+  font-weight:800;
+  line-height:1.1;
+  margin-bottom:18px;
+}
+
+.hero-content h1 .blue{
+  color:var(--blue);
+}
+
+.hero-role{
+  font-size:1rem;
+  color:var(--muted);
+  margin-bottom:22px;
+  font-family:Consolas, monospace;
+}
+
+.hero-desc{
+  font-size:1rem;
+  line-height:1.8;
+  color:var(--muted);
+  margin-bottom:35px;
+}
+
+/* BUTTONS */
+
+.hero-btns{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn-blue{
+  padding:13px 30px;
+  background:linear-gradient(135deg,#2196F3,#1976D2);
+  color:white;
+  border:none;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  box-shadow:0 10px 30px rgba(33,150,243,0.25);
+}
+
+.btn-blue:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px rgba(33,150,243,0.4);
+}
+
+.btn-ghost{
+  padding:13px 30px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  text-decoration:none;
+  color:var(--text);
+  transition:0.3s;
+}
+
+.btn-ghost:hover{
+  border-color:var(--blue);
+  color:var(--blue);
+}
+
+/* STATS */
+
+.hero-stats{
+  display:flex;
+  gap:40px;
+  margin-top:55px;
+  flex-wrap:wrap;
+}
+
+.stat-num{
+  font-size:2rem;
+  font-weight:800;
+  color:var(--blue);
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:0.85rem;
+}
+
+/* SECTIONS */
+
+section{
+  padding:90px 6%;
+}
+
+.sec-label{
+  color:var(--blue);
+  margin-bottom:10px;
+  text-transform:uppercase;
+  font-size:0.8rem;
+  letter-spacing:2px;
+}
+
+.sec-title{
+  font-size:3rem;
+  font-weight:800;
+  margin-bottom:50px;
+  position:relative;
+}
+
+.sec-title span{
+  color:var(--blue);
+}
+
+.sec-title::after{
+  content:'';
+  width:80px;
+  height:4px;
+  background:linear-gradient(90deg,var(--blue),transparent);
+  position:absolute;
+  left:0;
+  bottom:-12px;
+  border-radius:10px;
+}
+
+/* ABOUT */
+
+#about{
+  background:var(--surface);
+}
+
+.about-wrap{
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:60px;
+}
+
+.about-avatar{
+  width:220px;
+  height:220px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#2196F3,#0d47a1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:80px;
+  margin-bottom:25px;
+  box-shadow:0 20px 60px rgba(33,150,243,0.25);
+}
+
+.info-table{
+  width:100%;
+}
+
+.info-table td{
+  padding:10px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.info-table td:first-child{
+  color:var(--muted);
+  width:100px;
+}
+
+.about-right p{
+  line-height:1.9;
+  color:var(--muted);
+  margin-bottom:18px;
+}
+
+/* CARDS */
+
+.skills-grid,
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+
+.skill-card,
+.proj-card,
+.contact-item,
+.feat-module{
+  background:var(--card);
+  backdrop-filter:blur(14px);
+  border:1px solid var(--border);
+  border-radius:18px;
+  transition:0.3s;
+}
+
+.skill-card,
+.proj-card-body,
+.feat-module{
+  padding:26px;
+}
+
+.skill-card:hover,
+.proj-card:hover{
+  transform:translateY(-8px);
+  border-color:var(--blue);
+  box-shadow:
+  0 12px 40px rgba(33,150,243,0.15),
+  0 0 20px rgba(33,150,243,0.08);
+}
+
+.skill-icon{
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--blue-glow);
+  margin-bottom:18px;
+  font-size:24px;
+}
+
+.skill-card h3,
+.proj-card h3{
+  margin-bottom:10px;
+  color:white;
+}
+
+.skill-card p,
+.proj-card p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:0.9rem;
+}
+
+.skill-pills,
+.card-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:15px;
+}
+
+.pill{
+  padding:5px 12px;
+  border-radius:999px;
+  background:var(--blue-glow);
+  color:var(--blue-light);
+  font-size:0.75rem;
+  border:1px solid var(--border);
+}
+
+/* FEATURED PROJECT */
+
+.proj-featured{
+  grid-column:1/-1;
+  border:1px solid var(--blue);
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--card);
+}
+
+.proj-featured-header{
+  padding:30px;
+  background:linear-gradient(135deg,#10213b,#1a3a5c);
+  display:flex;
+  gap:18px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.proj-feat-icon{
+  width:60px;
+  height:60px;
+  border-radius:14px;
+  background:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+}
+
+.proj-featured-body{
+  padding:30px;
+}
+
+.proj-links{
+  margin-top:20px;
+}
+.proj-link{
+  text-decoration: none;
+}
+.card-footer-links a{
+  text-decoration: none;
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.card-footer-links a:hover{
+  color: var(--blue);
+}
+.proj-link{
+  display:inline-block;
+  padding:10px 22px;
+  border-radius:8px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.proj-link.primary{
+  background:var(--blue);
+  color:white;
+}
+
+.proj-link.outline{
+  border:1px solid var(--border);
+  color:var(--text);
+}
+
+.proj-link.outline:hover{
+  border-color:var(--blue);
+  color:var(--blue);
+}
+
+/* CONTACT */
+
+.contact-wrap{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:60px;
+}
+
+.contact-left p{
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:28px;
+}
+
+.contact-items{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.contact-item{
+  padding:16px 18px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.ci-icon{
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  background:var(--blue-glow);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.ci-label{
+  font-size:0.75rem;
+  color:var(--muted);
+}
+
+.ci-val{
+  font-size:0.92rem;
+  font-weight:600;
+}
+
+.ci-val a{
+  color:var(--blue);
+  text-decoration:none;
+}
+
+/* FORM */
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.form-group label{
+  color:var(--muted);
+  font-size:0.82rem;
+}
+
+.form-group input,
+.form-group textarea{
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:white;
+  outline:none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:var(--blue);
+}
+
+.submit-btn{
+  padding:13px 28px;
+  background:linear-gradient(135deg,#2196F3,#1976D2);
+  color:white;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.submit-btn:hover{
+  transform:translateY(-3px);
+}
+
+/* FOOTER */
+
+footer{
+  background:#08111f;
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:26px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+footer p{
+  color:var(--muted);
+}
+
+footer span{
+  color:var(--blue);
+}
+
+/* REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .about-wrap,
+  .contact-wrap{
+    grid-template-columns:1fr;
+  }
+
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  .hero-content h1{
+    font-size:3rem;
+  }
+}
+
+@media(max-width:650px){
+
+  nav ul{
+    display:none;
+  }
+
+  .hero-stats{
+    gap:24px;
+  }
+
+  .sec-title{
+    font-size:2.2rem;
+  }
+
+  .hero-content h1{
+    font-size:2.5rem;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Rehan<span>.dev</span></div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact" class="nav-hire">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-content">
+      <div class="hero-badge"><span></span> Available for Opportunities</div>
+      <h1>Hi, I'm <span class="blue">Rehan Ali</span></h1>
+      <div class="hero-role">
+        <span id="typed-text"></span><span class="cursor-blink"></span>
+      </div>
+      <p class="hero-desc">
+        A BSCS student at PMAS Arid Agriculture University who builds complete web applications — from pixel-perfect frontends to solid PHP backends and well-structured databases.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-blue">View My Work</a>
+        <a href="#contact" class="btn-ghost">Contact Me</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Projects Built</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2+</div>
+          <div class="stat-label">Years Learning</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Tech Stacks</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-label">// who i am</div>
+    <div class="sec-title">About <span>Me</span></div>
+    <div class="about-wrap">
+      <div class="about-left reveal">
+        <div class="about-avatar">👨‍💻</div>
+        <table class="info-table">
+          <tr><td>Name</td><td>Rehan Ali</td></tr>
+          <tr><td>Degree</td><td>BSCS</td></tr>
+          <tr><td>University</td><td>PMAS Arid Agriculture University</td></tr>
+          <tr><td>Location</td><td>Rawalpindi, Pakistan</td></tr>
+          <tr><td>Status</td><td>Internship</td></tr>
+          <tr><td>Email</td><td>alirehan5039@gmail.com</td></tr>
+        </table>
+      </div>
+      <div class="about-right reveal">
+        <p>
+          I am <strong>Rehan Ali</strong>, a Computer Science student at PMAS Arid Agriculture University Rawalpindi. I have been learning and building web projects for around 2 years and i enjoy every part of the process — from designing the UI to writing backend logic and managing databases.
+        </p>
+        <p>
+          On the <strong>frontend</strong>, i work with HTML, CSS and JavaScript to build clean and responsive interfaces. For the <strong>backend</strong>, i use PHP to handle server-side logic, user authentication and form processing. I manage all data using <strong>MySQL</strong> with XAMPP on local development.
+        </p>
+        <p>
+          Currently doing my internship where i am working on real world projects. I am always open to learning new tools and improving the way i write code. My goal is to become a strong full-stack developer who can build complete, working products.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-label">// what i know</div>
+    <div class="sec-title">My <span>Skills</span></div>
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌐</div>
+        <h3>Frontend Development</h3>
+        <p>Building responsive, clean and interactive user interfaces from scratch using modern HTML, CSS and JavaScript.</p>
+        <div class="skill-pills">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">Responsive Design</span>
+          <span class="pill">Flexbox / Grid</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚙️</div>
+        <h3>Backend Development</h3>
+        <p>Writing server-side code with PHP to handle business logic, user sessions, authentication and form data processing.</p>
+        <div class="skill-pills">
+          <span class="pill">PHP</span>
+          <span class="pill">Sessions</span>
+          <span class="pill">Form Handling</span>
+          <span class="pill">Server Logic</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🗄️</div>
+        <h3>Database Management</h3>
+        <p>Designing database schemas, writing SQL queries and connecting PHP applications to MySQL databases using XAMPP.</p>
+        <div class="skill-pills">
+          <span class="pill">MySQL</span>
+          <span class="pill">SQL Queries</span>
+          <span class="pill">DB Design</span>
+          <span class="pill">XAMPP</span>
+          <span class="pill">phpMyAdmin</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🛠️</div>
+        <h3>Tools & Workflow</h3>
+        <p>Using industry standard tools for version control, code editing and local development environment setup.</p>
+        <div class="skill-pills">
+          <span class="pill">Git</span>
+          <span class="pill">GitHub</span>
+          <span class="pill">VS Code</span>
+          <span class="pill">XAMPP</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-label">// What i built</div>
+    <div class="sec-title">My <span>Projects</span></div>
+    <div class="projects-grid">
+
+      <!-- FEATURED -->
+      <div class="proj-featured reveal">
+        <div class="proj-featured-header">
+          <div class="proj-feat-icon">🍽️</div>
+          <div>
+            <h3>The Halal Spot</h3>
+            <p>Full Stack Restaurant Website — Frontend + Backend + Database</p>
+          </div>
+          <div class="proj-feat-badge">⭐ Featured Project</div>
+        </div>
+        <div class="proj-featured-body">
+          <p>
+            A complete restaurant website for "The Halal Spot". Built with HTML, CSS and JavaScript on the frontend and PHP with MySQL on the backend. Has a full user authentication system and a well structured database for managing users, menu items and orders.
+          </p>
+          <div class="feat-modules">
+            <div class="feat-module">
+              <div class="mod-icon">🏠</div>
+              <h4>Home Page</h4>
+              <p>Hero section, menu display, about section and contact info. Fully responsive design.</p>
+              <div class="skill-pills">
+                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span>
+              </div>
+            </div>
+            <div class="feat-module">
+              <div class="mod-icon">🔐</div>
+              <h4>Login & Register</h4>
+              <p>User registration and login with PHP sessions, form validation and password handling.</p>
+              <div class="skill-pills">
+                <span class="pill">PHP</span><span class="pill">JavaScript</span><span class="pill">CSS</span>
+              </div>
+            </div>
+            <div class="feat-module">
+              <div class="mod-icon">🗄️</div>
+              <h4>Database</h4>
+              <p>MySQL database with tables for users, menu items and orders. Proper relations and queries.</p>
+              <div class="skill-pills">
+                <span class="pill">MySQL</span><span class="pill">PHP</span><span class="pill">XAMPP</span>
+              </div>
+            </div>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/rehan-dev-sys/the_halal_spot_php_project" class="proj-link outline">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 1 -->
+      <div class="proj-card reveal">
+        <div class="proj-card-top">🖼️</div>
+        <div class="proj-card-body">
+          <h3>Image Gallery</h3>
+          <p>Responsive image gallery with lightbox view, next/prev navigation and smooth hover effects. Pure HTML CSS JS.</p>
+          <div class="card-tags">
+            <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span>
+          </div>
+          <div class="card-footer-links">
+            <a href="https://github.com/rehan-dev-sys/my_image_gallery">⌥ GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="proj-card reveal">
+        <div class="proj-card-top">🧮</div>
+        <div class="proj-card-body">
+          <h3>Calculator App</h3>
+          <p>Basic calculator with all arithmetic operations. Keyboard support and handles edge cases like divide by zero.</p>
+          <div class="card-tags">
+            <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span>
+          </div>
+          <div class="card-footer-links">
+            <a href="https://github.com/rehan-dev-sys/Calculator_js_project">⌥ GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="proj-card reveal">
+        <div class="proj-card-top">🔐</div>
+        <div class="proj-card-body">
+          <h3>Login & Register System</h3>
+          <p>Complete auth system with sessions, form validation using HTML, CSS and javascript.</p>
+          <div class="card-tags">
+            <span class="pill">PHP</span><span class="pill">MySQL</span><span class="pill">JavaScript</span>
+          </div>
+          <div class="card-footer-links">
+            <a href="https://github.com/rehan-dev-sys/the-halal-spot">⌥ GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="sec-label">// Get in touch</div>
+    <div class="sec-title">Contact <span>Me</span></div>
+    <div class="contact-wrap">
+
+      <div class="contact-left reveal">
+        <h3>Let's work together</h3>
+        <p>I am open to internship opportunities, freelance projects and collaborations. If you have something in mind, feel free to reach out!</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon">📧</div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-val"><a href="mailto:alirehan5039@gmail.com">rehanali@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🐙</div>
+            <div>
+              <div class="ci-label">GitHub</div>
+              <div class="ci-val"><a href="https://github.com/rehan-dev-sys">github.com/rehanali</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">💼</div>
+            <div>
+              <div class="ci-label">LinkedIn</div>
+              <div class="ci-val"><a href="https://www.linkedin.com/in/rehan-ali-b5a3313a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">linkedin.com/in/rehanali</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-val">Punjab, Pakistan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Rehan Ali">
+          </div>
+          <div class="form-group">
+            <label>Your Email</label>
+            <input type="email" placeholder="ali123@gmail.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="What is this about?">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Write your message here..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="handleSubmit()">Send Message →</button>
+        <p id="form-msg" style="font-size:0.85rem;color:#2196F3;margin-top:10px;display:none;">
+          ✓ Message sent! I will get back to you soon.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Designed & Developed by <span>Rehan Ali</span></p>
+    <p>BSCS — PMAS Arid Agriculture University  2026</p>
+  </footer>
+
+  <script src="javascript.js"></script>
+
+</body>
+</html>
